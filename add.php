@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="add.css">
+    <link rel="stylesheet" href="./styles/add.css">
     <title>Cold Drink Cafe</title>
 </head>
 <body>
@@ -35,10 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h3>Add Drink</h3>
         </div>
 
-        <div id="data">
-                <label>Drink Name: </label>
-                <input type="text" name="productName" id="productName" required><br>
-
+        <form method="POST" action="">
+            <label for="productName">Drink Name:</label>
+            <input type="text" name="productName" id="productName" required><br>
 
             <label for="listPrice">Price:</label>
             <input type="number" step="0.01" name="listPrice" id="listPrice" required><br>
@@ -50,13 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="3">Energy</option>
             </select><br>
 
-            </div>
-    
-            <div id="buttons">
-                <label>&nbsp;</label>
-                <input type="submit" value="Add Drink" /><br />
-            </div>
-    
+            <button type="submit">Add Drink</button>
+        </form>
     </main>
 </body>
 </html>
