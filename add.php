@@ -6,10 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $productName = $_POST['productName'];
     $listPrice = $_POST['listPrice'];
     $categoryID = $_POST['categoryID'];
+    $productCode = $_POST['productCode'];
+
 
     // Insert new drink into the database
     $query = "INSERT INTO PRODUCTS (productName, listPrice, categoryID) VALUES (:productName, :listPrice, :categoryID)";
     $stmt = $db->prepare($query);
+    $stmt->bindParam(':productName', $productName);
     $stmt->bindParam(':productName', $productName);
     $stmt->bindParam(':listPrice', $listPrice);
     $stmt->bindParam(':categoryID', $categoryID);
@@ -36,18 +39,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <form method="POST" action="">
+
+        <label for="productCode">Product Category:</label>
+            <select name="productCategory" id="productCategory">
+                <option value="1">Regular</option>
+                <option value="2">Zero Sugar</option>
+                <option value="3">Energy</option>
+            </select><br>
+
+            <label for="productCode">Code:</label>
+            <input type="text" name="productCode" id="productCode" required><br>
+            
             <label for="productName">Drink Name:</label>
             <input type="text" name="productName" id="productName" required><br>
 
             <label for="listPrice">Price:</label>
             <input type="number" step="0.01" name="listPrice" id="listPrice" required><br>
-
-            <label for="categoryID">Category:</label>
-            <select name="categoryID" id="categoryID">
-                <option value="1">Regular</option>
-                <option value="2">Zero Sugar</option>
-                <option value="3">Energy</option>
-            </select><br>
 
             <button type="submit">Add Drink</button>
         </form>

@@ -4,7 +4,7 @@
 <!-- the head section -->
 <head>
     <title>Cold Drink Cafe</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/db_error.css" />
 </head>
 
 <!-- the body section -->
@@ -15,6 +15,7 @@
         <h1>Database Error</h1>
         <p>There was an error connecting to the database.</p>
         <p>&nbsp;</p>
+        <hr>
     </main>
 
     <footer>
